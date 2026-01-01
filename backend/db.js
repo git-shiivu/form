@@ -5,8 +5,8 @@ async function mysqlInsert(name,email,sugg) {
   const connection = await mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'wakeup',
-    database: 'dataset'
+    password: 'shiivuishere',
+    database: 'Dataset'
   });
 
   try {
