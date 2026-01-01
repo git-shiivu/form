@@ -1,9 +1,10 @@
 const { MongoClient } = require('mongodb');
+require("dotenv").config()
 // or as an es module:
 // import { MongoClient } from 'mongodb'
 
 // Connection URL
-const url = 'mongodb://localhost:27017/dataset';
+const url = process.env.MONGOSTRING;
 const client = new MongoClient(url);
 
 // Database Name
@@ -21,7 +22,8 @@ async function insertData(name,email,suggestion) {
   const insertResult = await collection.insertOne({
     name:name,
     email: email,
-    suggestion: suggestion
+    suggestion: suggestion,
+    createAt: new Date()
   })
   console.log("Submitted");
   

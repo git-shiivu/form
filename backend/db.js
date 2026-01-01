@@ -1,12 +1,13 @@
 const mysql = require('mysql2');
+require("dotenv").config()
 
 async function mysqlInsert(name,email,sugg) {
   // Create a connection
   const connection = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'shiivuishere',
-    database: 'Dataset'
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
   });
 
   try {

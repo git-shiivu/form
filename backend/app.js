@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const insertData = require("./mdb")
-const mysqlInsert = require("./db")
+// const mysqlInsert = require("./db")
 const app = express();
 const PORT = 3000;
 
@@ -32,15 +32,15 @@ app.post("/", async (req,res)=>{
     } catch (error) {
         console.error(error)
     }
-
-    //for MySQL
-    await mysqlInsert(req.body.name, req.body.email, req.body.suggestion)
     res.sendFile(path.join(__dirname, '..',"frontend", 'public', 'submitted.html'), (err) => {
         if (err) {
             console.error('Error sending file:', err);
             res.status(500).send('Server Error');
         }
     });
+    
+    //for MySQL
+    // await mysqlInsert(req.body.name, req.body.email, req.body.suggestion)
 })
 
 // Start server
