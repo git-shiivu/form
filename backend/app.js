@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const insertData = require("./mdb")
-// const mysqlInsert = require("./db")
+const mysqlInsert = require("./db")
 const app = express();
 const PORT = process.env.PORT || 3000;
 
