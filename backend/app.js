@@ -24,10 +24,13 @@ app.get('/', (req, res) => {
 });
 
 app.post("/", async (req,res)=>{
-    //for MongoDB
     try {
+        //for MongoDB
         await insertData(req.body.name, req.body.email, req.body.suggestion)
         console.log("Successfully inserted in MongoDB");
+        //for MySQL
+        await mysqlInsert(req.body.name, req.body.email, req.body.suggestion)
+        console.log("Successfully inserted in MySQL");
         
     } catch (error) {
         console.error(error)
@@ -39,8 +42,6 @@ app.post("/", async (req,res)=>{
         }
     });
     
-    //for MySQL
-    // await mysqlInsert(req.body.name, req.body.email, req.body.suggestion)
 })
 
 // Start server
