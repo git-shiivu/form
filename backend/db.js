@@ -13,7 +13,7 @@ async function mysqlInsert(name,email,sugg) {
 
   try {
     // Execute a query using async/await
-    await connection.execute("INSERT INTO feedbacks (Name,Email,Suggestion) VALUES (?,?,?)", [name, email, sugg]);
+    await connection.execute("INSERT INTO feedbacks (Name,Email,Suggestion, CreatedAt) VALUES (?,?,?,?)", [name, email, sugg, new Date]);
     console.log("Done");
   } catch (err) {
     console.error(err);
